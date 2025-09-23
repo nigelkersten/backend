@@ -23,6 +23,3 @@ applications:
     relationships:
       db: {}
 
-services:
-  db:
-    type: postgresql:17
