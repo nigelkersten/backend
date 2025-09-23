@@ -1,0 +1,28 @@
+# Upsun configuration, generated using AI at: 2025-09-23T15:14:00+01:00
+# AI can make mistakes. Please modify this file to suit your needs.
+applications:
+  backend:
+    type: golang:1.25
+
+    hooks:
+      build: |
+        set -ex
+        go build -o server ./...
+
+        # Export DATABASE_URL for PostgreSQL relationship
+        echo >> .environment 'export DATABASE_URL="postgres://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_PATH"'
+
+    web:
+      commands:
+        start: ./server --port=$PORT
+
+      locations:
+        /:
+          passthru: true
+
+    relationships:
+      db: {}
+
+services:
+  db:
+    type: postgresql:17
