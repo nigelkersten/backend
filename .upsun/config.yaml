@@ -14,7 +14,7 @@ applications:
 
     web:
       commands:
-        start: ./server --port=$PORT
+        start: ./server -port=$PORT
 
       locations:
         /:

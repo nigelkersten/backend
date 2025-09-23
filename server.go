@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -17,11 +19,15 @@ type User struct {
 var users []User
 
 func main() {
+	portPtr := flag.Int("port", 8080, "port to listen on")
+	flag.Parse()
+
 	router := mux.NewRouter()
 	router.HandleFunc("/users", getUsers).Methods("GET")
 	router.HandleFunc("/users", createUser).Methods("POST")
 
-	log.Fatal(http.ListenAndServe(":8888", router))
+	portStr := fmt.Sprintf(":%d", *portPtr)
+	log.Fatal(http.ListenAndServe(portStr, router))
 }
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
