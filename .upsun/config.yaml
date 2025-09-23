@@ -20,6 +20,3 @@ applications:
         /:
           passthru: true
 
-    relationships:
-      db: {}
-
