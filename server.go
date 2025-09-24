@@ -1,3 +1,12 @@
+// This is an Upsun board meeting.
+//
+//	    \   |   /
+//	     .\ | /.
+//	  --   \|/   --
+//	----  --O--  ----
+//	  --   /|\   --
+//	     ./ | \.
+//	    /   |   \
 package main
 
 import (
