@@ -16,6 +16,8 @@ type User struct {
 	Email    string `json:"email"`
 }
 
+// test comment just to trigger a build
+
 var users []User
 
 func main() {
