@@ -1,7 +1,5 @@
 package main
 
-// Upsun board presentation
-
 import (
 	"encoding/json"
 	"flag"
@@ -17,8 +15,6 @@ type User struct {
 	Username string `json:"username"`
 	Email    string `json:"email"`
 }
-
-// editing test
 
 var users []User
 
